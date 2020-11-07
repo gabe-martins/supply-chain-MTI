@@ -7,14 +7,6 @@ export class createProducts1604710783530 implements MigrationInterface {
             name: 'products',
             columns: [
                 {
-                    name: 'id',
-                    type: 'integer',
-                    unsigned: true,
-                    isPrimary: true,
-                    isGenerated: true,
-                    generationStrategy: "increment",
-                },
-                {
                     name: 'registrationNumber',
                     type: 'integer',
                     unsigned: true,

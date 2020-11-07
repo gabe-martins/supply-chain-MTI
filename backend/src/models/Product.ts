@@ -1,11 +1,8 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany, JoinColumn} from 'typeorm'
+import { Entity, Column, PrimaryGeneratedColumn} from 'typeorm'
 
 @Entity('products')
 export default class Product {
-  @PrimaryGeneratedColumn('increment')
-  id: number;
-
-  @Column()
+  @PrimaryGeneratedColumn()
   registrationNumber: number;
 
   @Column()

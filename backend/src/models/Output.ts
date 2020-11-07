@@ -17,6 +17,4 @@ export default class Output {
 
   @Column()
   product_number: number
-
-  productIn: Products
 }
