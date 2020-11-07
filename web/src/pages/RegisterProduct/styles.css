@@ -1,0 +1,120 @@
+body{
+  background: var(--color-primary);
+}
+
+#page-product-form {
+  width: 100vw;
+  height: 100vh;
+  
+}
+
+#page-product-form .header-content {
+  margin-bottom: 6.4rem;
+}
+
+#page-product-form main {
+  background: var(--color-primary-dark);
+  width: 100%;
+  max-width: 74rem;
+  border-radius: 0.8rem;
+  margin: -3.2rem auto 3.2rem;
+  padding: 6.4rem;
+  overflow: hidden;
+}
+
+#page-product-form main fieldset {
+  border: 0;
+  padding: 0 2.4rem;
+}
+
+#page-product-form main fieldset+fieldset {
+  margin-top: 6.4rem;
+}
+
+#page-product-form main fieldset legend {
+  font: 700 2.4rem 'Open Sans', sans-serif;
+  color: var(--color-white);
+  margin-bottom: 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-bottom: 1.6rem;
+  border-bottom: 1px solid var(--color-white);
+}
+
+#page-product-form main fieldset legend button {
+  background: none;
+  border: 0;
+  color: var(--color-white);
+  font: 700 1.4rem 'Open Sans', sans-serif;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  margin-top: 1.8rem;
+}
+
+#page-product-form main footer fieldset button {
+  opacity: 0.6;
+}
+
+#page-product-form main fieldset .input-box+.select-box,
+#page-product-form main fieldset .select-box+.select-box {
+  margin-top: 2.4rem;
+}
+
+#page-product-form main label {
+  font-size: 1.5rem;
+  color: var(--color-white);
+}
+
+#page-product-form main footer {
+  padding: 2.4rem;
+  margin-top: 1.2 rem;
+}
+
+#page-product-form main footer button {
+  width: 100%;
+  height: 5rem;
+  background: var(--color-primary);
+  color: var(--color-white);
+  border: 0;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  font: 700 1.6rem 'Open Sans', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  margin-top: 3rem;
+  transition: background-color 0.2s;
+}
+
+#page-product-form main footer button:hover {
+  background: var(--color-primary-light);
+}
+
+@media (min-width: 700px) {
+  #page-product-form {
+    max-width: 100vw;
+  }
+
+  #page-product-form .page-header .header-content {
+    margin-bottom: 0;
+  }
+
+  #page-product-form main fieldset {
+    padding: 0 6.4rem;
+  }
+
+  #page-product-form main footer {
+    padding: 4rem 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #page-product-form main footer button {
+    width: 100%;
+    margin-top: 0;
+  }
+}

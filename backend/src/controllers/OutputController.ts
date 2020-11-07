@@ -18,7 +18,7 @@ export default {
     const { id } = req.params
 
     const outputRepository = getRepository(Output);
-    const output = await outputRepository.findOne(id)
+    const output = await outputRepository.findOneOrFail(id)
 
     return res.json(outputView.render(output))
   },
@@ -35,7 +35,6 @@ export default {
     let seconds = date_ob.getSeconds();
 
     var exactTime = (date + "/" + month + "/" + + year + "-" + hours + ":" + minutes + ":" + seconds);
-    console.log(exactTime)
     
     const {
       amount,
