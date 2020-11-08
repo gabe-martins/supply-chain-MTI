@@ -4,23 +4,34 @@ import { FiAlertTriangle } from "react-icons/fi";
 
 import api from "../../services/api";
 
+import '../../components/Select/styles.css'
+
 import PageHeader from "../../components/PageHeader";
 import InputLabel from "../../components/InputLabel";
 import Select from "../../components/Select";
 
 export default function InputPage(): ReactElement {
-  const [products, setProducts] = useState([]);
+  // const [listProducts, setProductsList] = useState([{ label: "", value: "" }]);
   const [amount, setAmount] = useState("");
   const [local, setLocal] = useState("");
   const [product_number, setProduct_number] = useState("");
 
-  // async function loadProducts() {
-  //   const res = await api.get("/products");
-  //   setProducts(res.data.products);
-  // }
-  // useEffect(() => {
-  //   loadProducts();
-  // }, []);
+  useEffect(() => {
+    async function loadProducts() {
+      const response = await fetch("http://localhost:3333/products");
+      const body = (await response.json()) as {
+        result: { name: string; product_number: number };
+      };
+      console.log(body);
+      // setProductsList(
+      //   body.result.map(({ name, product_number }) => ({
+      //     label: name,
+      //     value: product_number,
+      //   }))
+      // );
+    }
+    loadProducts();
+  }, []);
 
   function handleNewInput(e: FormEvent) {
     e.preventDefault();
@@ -56,7 +67,23 @@ export default function InputPage(): ReactElement {
 
       <main>
         <form onSubmit={handleNewInput}>
-          <fieldset>
+        <fieldset>
+            {/* <div className="select-box">
+              <select
+                className="select-box"
+                value={product_number}
+                onChange={(e) => {
+                  setProduct_number(e.target.value);
+                }}
+              >
+                {listProducts.map((item) => (
+                  <option key={item.value} value={item.value}>
+                    {item.label} - {item.value}
+                  </option>
+                ))}
+              </select>
+            </div> */}
+
             <Select
               name="product_number"
               label="Produto"

@@ -1,29 +1,38 @@
-import React, { FormEvent, ReactElement, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import api from "../../services/api";
 
 import PageHeader from "../../components/PageHeader";
 import InputLabel from "../../components/InputLabel";
-import Select from "../../components/Select";
 import { FiAlertTriangle } from "react-icons/fi";
 
-export default function InputPage(): ReactElement {
-  const [products, setProducts] = useState([]);
+import "../../components/Select/styles.css";
+import Select from "../../components/Select";
+
+export default function InputPage() {
+  // const [listProducts, setProductsList] = useState([{ label: "", value: "" }]);
   const [amount, setAmount] = useState("");
   const [local, setLocal] = useState("");
   const [product_number, setProduct_number] = useState("");
 
-  // async function loadProducts() {
-  //   const res = await api.get("/products");
-  //   setProducts(res.data.products);
-  // }
-  // useEffect(() => {
-  //   loadProducts();
-  // }, []);
+  useEffect(() => {
+    async function loadProducts() {
+      const response = await fetch("http://localhost:3333/products");
+      const body = (await response.json()) as {
+        result: { name: string; product_number: number };
+      };
+      console.log(body);
+      // setProductsList(
+      //   body.result.map(({ name, product_number }) => ({
+      //     label: name,
+      //     value: product_number,
+      //   }))
+      // );
+    }
+    loadProducts();
+  }, []);
 
-  function handleNewInput(e: FormEvent) {
-    e.preventDefault();
-
+  function handleNewInput() {
     if (local === "" || amount === "" || product_number === "") {
       alert("Todos os campos devem ser preenchidos");
     } else {
@@ -56,6 +65,22 @@ export default function InputPage(): ReactElement {
       <main>
         <form onSubmit={handleNewInput}>
           <fieldset>
+            {/* <div className="select-box">
+              <select
+                className="select-box"
+                value={product_number}
+                onChange={(e) => {
+                  setProduct_number(e.target.value);
+                }}
+              >
+                {listProducts.map((item) => (
+                  <option key={item.value} value={item.value}>
+                    {item.label} - {item.value}
+                  </option>
+                ))}
+              </select>
+            </div> */}
+
             <Select
               name="product_number"
               label="Produto"
@@ -91,11 +116,11 @@ export default function InputPage(): ReactElement {
           </fieldset>
 
           <footer>
-          <p>
+            <p>
               Importante <FiAlertTriangle />
               <br />
               Preencha todos os dados
-            </p>  
+            </p>
 
             <button type="submit">Confirmar entrada</button>
           </footer>
