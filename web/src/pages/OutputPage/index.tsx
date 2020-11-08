@@ -2,8 +2,6 @@ import React, { FormEvent, ReactElement, useEffect, useState } from "react";
 
 import api from "../../services/api";
 
-import "./styles.css";
-
 import PageHeader from "../../components/PageHeader";
 import InputLabel from "../../components/InputLabel";
 import Select from "../../components/Select";
@@ -61,8 +59,8 @@ export default function InputPage(): ReactElement {
                 setProduct_number(e.target.value);
               }}
               options={[
-                { value: "128241", label: "Console Sony PlayStation 5" },
-                { value: "55647", label: "Pen Drive Multilaser Twist" },
+                { value: "128245", label: "Console Sony PlayStation 5" },
+                { value: "106998", label: "Notebook Lenovo Ideapad S145" }
               ]}
             />
           </fieldset>
@@ -72,6 +70,7 @@ export default function InputPage(): ReactElement {
               name="amount"
               label="Quantidade"
               value={amount}
+              valueType="number"
               onChange={(e) => setAmount(e.target.value)}
             />
           </fieldset>
@@ -81,6 +80,7 @@ export default function InputPage(): ReactElement {
               name="local"
               label="Locaização"
               value={local}
+              valueType="text"
               onChange={(e) => setLocal(e.target.value)}
             />
           </fieldset>

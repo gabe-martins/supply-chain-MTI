@@ -53,6 +53,7 @@ export default function RegisterProduct(): ReactElement {
               name="registrationNumber"
               label="Número de registro"
               value={registrationNumber}
+              valueType="number"
               onChange={(e) => setRegistrationNumber(e.target.value)}
             />
           </fieldset>
@@ -62,6 +63,7 @@ export default function RegisterProduct(): ReactElement {
               name="name"
               label="Nome do protudo"
               value={name}
+              valueType="text"
               onChange={(e) => setName(e.target.value)}
             />
           </fieldset>
@@ -71,6 +73,7 @@ export default function RegisterProduct(): ReactElement {
               name="manufacturer"
               label="Fabricante"
               value={manufacturer}
+              valueType="text"
               onChange={(e) => setManufacturer(e.target.value)}
             />
           </fieldset>
@@ -80,6 +83,7 @@ export default function RegisterProduct(): ReactElement {
               name="type"
               label="Tipo de produto"
               value={type}
+              valueType="text"
               onChange={(e) => setType(e.target.value)}
             />
           </fieldset>
@@ -89,6 +93,7 @@ export default function RegisterProduct(): ReactElement {
               name="description"
               label="Breve Descrição"
               value={description}
+              valueType="text"
               onChange={(e) => setDescription(e.target.value)}
             />
           </fieldset>

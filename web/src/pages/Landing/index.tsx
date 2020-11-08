@@ -14,6 +14,7 @@ export default function Landing(): ReactElement {
     <div id="page-landing">
       <div id="page-landing-content" className="container">
         <div className="text-area">
+          <h1>Controle de mercadoria</h1>
           <h2>
             <strong>Olá,</strong> o que deseja fazer
           </h2>

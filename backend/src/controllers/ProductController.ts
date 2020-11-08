@@ -54,7 +54,7 @@ export default {
         name: Yup.string().required(),
         manufacturer: Yup.string().required(),
         type: Yup.string().required(),
-        description: Yup.string().required().max(300),
+        description: Yup.string().required(),
       })
 
       await schema.validate(data, {
