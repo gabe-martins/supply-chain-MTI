@@ -93,6 +93,13 @@ body{
   background: var(--color-primary-light);
 }
 
+#page-product-form main footer p {
+  margin-right: 2rem;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  color: rgb(250, 99, 53);
+}
+
 @media (min-width: 700px) {
   #page-product-form {
     max-width: 100vw;

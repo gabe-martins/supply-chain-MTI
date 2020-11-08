@@ -6,6 +6,7 @@ import "./styles.css";
 
 import PageHeader from "../../components/PageHeader";
 import InputLabel from "../../components/InputLabel";
+import { FiAlertTriangle } from "react-icons/fi";
 
 export default function RegisterProduct(): ReactElement {
   const [registrationNumber, setRegistrationNumber] = useState("");
@@ -17,20 +18,30 @@ export default function RegisterProduct(): ReactElement {
   function handleNewProduct(e: FormEvent) {
     e.preventDefault();
 
-    api
-      .post("/products", {
-        registrationNumber,
-        name,
-        manufacturer,
-        type,
-        description,
-      })
-      .then(() => {
-        alert("Cadastro realizado com sucesso!");
-      })
-      .catch(() => {
-        alert("Ops! ocorreu um problema ao realiza o cadastro.");
-      });
+    if (
+      registrationNumber === "" ||
+      name === "" ||
+      manufacturer === "" ||
+      type === "" ||
+      description === ""
+    ) {
+      alert("Todos os campos devem ser preenchidos");
+    } else {
+      api
+        .post("/products", {
+          registrationNumber,
+          name,
+          manufacturer,
+          type,
+          description,
+        })
+        .then(() => {
+          alert("Cadastro realizado com sucesso!");
+        })
+        .catch(() => {
+          alert("Ops! ocorreu um problema ao realiza o cadastro.");
+        });
+    }
 
     setRegistrationNumber("");
     setName("");
@@ -99,6 +110,12 @@ export default function RegisterProduct(): ReactElement {
           </fieldset>
 
           <footer>
+            <p>
+              Importante <FiAlertTriangle />
+              <br />
+              Preencha todos os dados
+            </p>
+
             <button type="submit">Salvar Produto</button>
           </footer>
         </form>

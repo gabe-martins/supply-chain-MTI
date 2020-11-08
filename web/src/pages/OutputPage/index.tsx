@@ -1,5 +1,7 @@
 import React, { FormEvent, ReactElement, useEffect, useState } from "react";
 
+import { FiAlertTriangle } from "react-icons/fi";
+
 import api from "../../services/api";
 
 import PageHeader from "../../components/PageHeader";
@@ -23,18 +25,22 @@ export default function InputPage(): ReactElement {
   function handleNewInput(e: FormEvent) {
     e.preventDefault();
 
-    api
-      .post("/output", {
-        amount,
-        local,
-        product_number,
-      })
-      .then(() => {
-        alert("Cadastro realizado com sucesso!");
-      })
-      .catch(() => {
-        alert("Ops! ocorreu um problema ao realiza o cadastro.");
-      });
+    if (local === "" || amount === "" || product_number === "") {
+      alert("Todos os campos devem ser preenchidos");
+    } else {
+      api
+        .post("/output", {
+          amount,
+          local,
+          product_number,
+        })
+        .then(() => {
+          alert("Cadastro realizado com sucesso!");
+        })
+        .catch(() => {
+          alert("Ops! ocorreu um problema ao realiza o cadastro.");
+        });
+    }
 
     setAmount("");
     setLocal("");
@@ -60,7 +66,7 @@ export default function InputPage(): ReactElement {
               }}
               options={[
                 { value: "128245", label: "Console Sony PlayStation 5" },
-                { value: "106998", label: "Notebook Lenovo Ideapad S145" }
+                { value: "106998", label: "Notebook Lenovo Ideapad S145" },
               ]}
             />
           </fieldset>
@@ -86,6 +92,12 @@ export default function InputPage(): ReactElement {
           </fieldset>
 
           <footer>
+            <p>
+              Importante <FiAlertTriangle />
+              <br />
+              Preencha todos os dados
+            </p>
+
             <button type="submit">Confirmar entrada</button>
           </footer>
         </form>

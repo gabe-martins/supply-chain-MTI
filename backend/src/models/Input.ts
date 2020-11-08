@@ -17,4 +17,5 @@ export default class Input {
 
   @Column()
   product_number: number
+  productIn: Products
 }
