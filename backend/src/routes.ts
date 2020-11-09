@@ -9,6 +9,7 @@ const routes = Router();
 routes.get('/products', ProductController.index)
 routes.get('/product/:registrationNumber', ProductController.show)
 routes.post('/products', ProductController.create)
+routes.delete('/product/:registrationNumber', ProductController.delete)
 
 routes.get('/inputs', InputController.index)
 routes.get('/input/:id', InputController.show)

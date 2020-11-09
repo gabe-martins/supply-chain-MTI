@@ -5,42 +5,19 @@ import "./styles.css";
 
 import PageHeader from "../../components/PageHeader";
 import api from "../../services/api";
+import { Link } from "react-router-dom";
 
 export default function RegisterProduct(): ReactElement {
   const [chartGlobal, setChartGlobal] = useState({});
   const [chartProductOne, setChartProductOne] = useState({});
-  const [products, setProducts] = useState({});
+  const [products, setProducts] = useState<any[]>([])
 
   var fillPattern = "#265269";
   const chart = () => {
-    // let productsName = [];
-    // let productsId: number[] = [];
-    // let arrayInput: number[] = [];
-    // let arrayOutput: number[] = [];
-    // let totalInput: number;
-
-    // api
-    //   .get("/inputs")
-    //   .then((res) => {
-    //     for (const dataObj of res.data) {     
-    //       arrayInput.push(dataObj.arrayInput);
-    //       totalInput = arrayInput.length;
-    //     }
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-
-    // api
-    //   .get("/outputs")
-    //   .then((res) => {
-    //     for (const dataObj of res.data) {
-    //       arrayOutput.push(dataObj.arrayOutput);
-    //     }
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
+    api.get("/products").then((res) => {
+      setProducts(res.data);
+      console.log(res.data);
+    });
 
     setChartGlobal({
       labels: [
@@ -151,6 +128,11 @@ export default function RegisterProduct(): ReactElement {
           <h1>Notebook Lenovo Ultrafino Ideapad S145</h1>
           <Bar data={chartProductOne} options={{ responsive: true }} />
         </div>
+        <footer>
+          <Link to="/download" className="export-page">
+            Salvar Planilhas
+          </Link>
+        </footer>
       </main>
     </div>
   );

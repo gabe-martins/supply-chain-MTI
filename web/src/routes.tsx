@@ -6,6 +6,9 @@ import AnalyticPage from "./pages/AnalyticPage";
 import InputPage from "./pages/InputPage";
 import OutputPage from "./pages/OutputPage";
 import RegisterProduct from "./pages/RegisterProduct";
+import ExportCsvPage from "./pages/ExportCsvPage";
+import ProductsPage from "./pages/ProductsPage";
+
 
 export default function Routes(): ReactElement {
   return (
@@ -15,6 +18,8 @@ export default function Routes(): ReactElement {
       <Route path="/input" component={InputPage} />
       <Route path="/output" component={OutputPage} />
       <Route path="/newproduct" component={RegisterProduct} />
+      <Route path="/download" component={ExportCsvPage} />
+      <Route path="/products" component={ProductsPage} />
     </BrowserRouter>
   );
 }

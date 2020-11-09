@@ -100,6 +100,36 @@ body{
   color: rgb(250, 99, 53);
 }
 
+#page-product-form main .manage-container a {
+  width: 78%;
+  height: 5rem;
+  border: 0;
+  border-radius: 0.8rem;
+  cursor: pointer;
+
+  background: var(--color-primary);
+  color: var(--color-white);
+  
+  font: 700 1.8rem 'Open Sans', sans-serif;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+
+  margin: 0 auto;
+  margin-bottom: 2.4rem;
+  transition: 0.6s;
+  -webkit-box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.01);
+
+}
+
+#page-product-form main .manage-container a:hover {
+  background: var(--color-primary-light);
+}
+
+
+
 @media (min-width: 700px) {
   #page-product-form {
     max-width: 100vw;

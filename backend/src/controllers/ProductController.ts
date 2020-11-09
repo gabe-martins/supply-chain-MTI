@@ -16,7 +16,7 @@ export default {
 
   async show(req: Request, res: Response) {
     const { registrationNumber } = req.params
-    
+
     const productsRepository = getRepository(Product);
     let product = await productsRepository.findOne({
       registrationNumber
@@ -69,5 +69,26 @@ export default {
     }
 
     return res.status(201).json(product)
-  }
+  },
+
+  async delete(req: Request, res: Response) {
+    const { registrationNumber } = req.params
+    const productsRepository = getRepository(Product)
+    let product = await productsRepository.findOne({
+      registrationNumber
+    })
+
+    if (!product) {
+      res.json("Este produto não exite mais!")
+    } else {
+      const productsRepository = getRepository(Product);
+      await productsRepository.remove({
+        registrationNumber
+      })
+    }
+
+
+
+    return res.json("removido com sucesso")
+  },
 }

@@ -7,6 +7,7 @@ import "./styles.css";
 import PageHeader from "../../components/PageHeader";
 import InputLabel from "../../components/InputLabel";
 import { FiAlertTriangle } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 export default function RegisterProduct(): ReactElement {
   const [registrationNumber, setRegistrationNumber] = useState("");
@@ -58,6 +59,10 @@ export default function RegisterProduct(): ReactElement {
       />
 
       <main>
+        <div className="manage-container">
+          <Link to="/products">Gerenciar Produtos</Link>
+        </div>
+
         <form onSubmit={handleNewProduct}>
           <fieldset>
             <InputLabel

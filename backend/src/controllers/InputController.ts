@@ -15,12 +15,12 @@ export default {
   },
 
   async show(req: Request, res: Response) {
-    const { id } = req.params
+    const { product_number } = req.params
 
     const inputRepository = getRepository(Input);
-    const input = await inputRepository.findOneOrFail(id)
+    const input = await inputRepository.find(product_number)
 
-    return res.json(inputView.render(input))
+    return res.json(inputView.renderMany(input))
   },
 
   async create(req: Request, res: Response) {

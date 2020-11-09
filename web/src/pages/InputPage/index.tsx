@@ -7,29 +7,18 @@ import InputLabel from "../../components/InputLabel";
 import { FiAlertTriangle } from "react-icons/fi";
 
 import "../../components/Select/styles.css";
-import Select from "../../components/Select";
 
 export default function InputPage() {
-  // const [listProducts, setProductsList] = useState([{ label: "", value: "" }]);
+  const [listProducts, setProductsList] = useState<any[]>([])
   const [amount, setAmount] = useState("");
   const [local, setLocal] = useState("");
   const [product_number, setProduct_number] = useState("");
 
   useEffect(() => {
-    async function loadProducts() {
-      const response = await fetch("http://localhost:3333/products");
-      const body = (await response.json()) as {
-        result: { name: string; product_number: number };
-      };
-      console.log(body);
-      // setProductsList(
-      //   body.result.map(({ name, product_number }) => ({
-      //     label: name,
-      //     value: product_number,
-      //   }))
-      // );
-    }
-    loadProducts();
+    api.get("/products").then((res) => {
+      setProductsList(res.data);
+      console.log(res.data);
+    });
   }, []);
 
   function handleNewInput() {
@@ -65,7 +54,7 @@ export default function InputPage() {
       <main>
         <form onSubmit={handleNewInput}>
           <fieldset>
-            {/* <div className="select-box">
+            <div className="select-box">
               <select
                 className="select-box"
                 value={product_number}
@@ -73,26 +62,16 @@ export default function InputPage() {
                   setProduct_number(e.target.value);
                 }}
               >
-                {listProducts.map((item) => (
-                  <option key={item.value} value={item.value}>
-                    {item.label} - {item.value}
+                {listProducts.map((product) => (
+                  <option
+                    key={product.registrationNumber}
+                    value={product.registrationNumber}
+                  >
+                    {product.name} - {product.registrationNumber}
                   </option>
                 ))}
               </select>
-            </div> */}
-
-            <Select
-              name="product_number"
-              label="Produto"
-              value={product_number}
-              onChange={(e) => {
-                setProduct_number(e.target.value);
-              }}
-              options={[
-                { value: "128245", label: "Console Sony PlayStation 5" },
-                { value: "106998", label: "Notebook Lenovo Ideapad S145" },
-              ]}
-            />
+            </div>
           </fieldset>
 
           <fieldset>
