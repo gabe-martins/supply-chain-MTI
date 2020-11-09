@@ -1,17 +1,47 @@
 import React, { ReactElement, useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
 
-// import api from "../../services/api";
-
 import "./styles.css";
 
 import PageHeader from "../../components/PageHeader";
+import api from "../../services/api";
 
 export default function RegisterProduct(): ReactElement {
   const [chartGlobal, setChartGlobal] = useState({});
   const [chartProductOne, setChartProductOne] = useState({});
+  const [products, setProducts] = useState({});
+
   var fillPattern = "#265269";
   const chart = () => {
+    // let productsName = [];
+    // let productsId: number[] = [];
+    // let arrayInput: number[] = [];
+    // let arrayOutput: number[] = [];
+    // let totalInput: number;
+
+    // api
+    //   .get("/inputs")
+    //   .then((res) => {
+    //     for (const dataObj of res.data) {     
+    //       arrayInput.push(dataObj.arrayInput);
+    //       totalInput = arrayInput.length;
+    //     }
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+
+    // api
+    //   .get("/outputs")
+    //   .then((res) => {
+    //     for (const dataObj of res.data) {
+    //       arrayOutput.push(dataObj.arrayOutput);
+    //     }
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+
     setChartGlobal({
       labels: [
         "Janeiro",
@@ -106,7 +136,7 @@ export default function RegisterProduct(): ReactElement {
 
   useEffect(() => {
     chart();
-  },);
+  });
 
   return (
     <div id="page-product-form" className="container">

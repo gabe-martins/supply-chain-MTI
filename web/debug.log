@@ -9,3 +9,4 @@
 [1108/180907.924:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acesso Negado} Um processo solicitou acesso a um objeto, mas o direito de acesso não lhe foi concedido. (0xc0000022)
 [1108/180907.924:ERROR:exception_snapshot_win.cc(99)] thread ID 4676 not found in process
 [1108/180907.925:ERROR:exception_snapshot_win.cc(99)] thread ID 13328 not found in process
+[1108/214848.380:ERROR:directory_reader_win.cc(43)] FindFirstFile: O sistema não pode encontrar o caminho especificado. (0x3)
