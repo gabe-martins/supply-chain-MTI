@@ -12,7 +12,6 @@ export default function ProductsPage(): ReactElement {
   useEffect(() => {
     api.get("/products").then((res) => {
       setProducts(res.data);
-      console.log(res.data);
     });
   }, []);
 

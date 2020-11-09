@@ -7,7 +7,8 @@
   align-items: center;
 
   color: var(--color-white);
-  background: var(--color-primary);
+  background: rgb(9, 159, 237);
+  background: linear-gradient(90deg, rgba(9, 159, 237, 1) 0%, rgba(61, 132, 168, 1) 49%, rgba(38, 82, 105, 1) 100%);
 }
 
 .text-area {
@@ -17,9 +18,10 @@
 }
 
 h1 {
-  font-size: 2.2rem;
-  font-weight: 400;
-  margin-top: 2rem
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-top: 2rem;
+  line-height: 1.6rem;
 }
 
 h2 {

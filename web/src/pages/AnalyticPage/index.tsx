@@ -10,67 +10,43 @@ import { Link } from "react-router-dom";
 export default function RegisterProduct(): ReactElement {
   const [chartGlobal, setChartGlobal] = useState({});
   const [chartProductOne, setChartProductOne] = useState({});
-  const [products, setProducts] = useState<any[]>([])
+  const [products, setProducts] = useState<any[]>([]);
+  const [inputs, setInputs] = useState<any[]>([]);
+  const [outputs, setOutputs] = useState<any[]>([]);
+
+  function loadProducts() {
+    api.get("/products").then((res) => {
+      setProducts(res.data);
+    });
+  }
+
+  useEffect(() => {
+    api.get("/inputs").then((res) => {
+      setInputs(res.data);
+    });
+    api.get("/outputs").then((res) => {
+      setOutputs(res.data);
+    });
+  }, []);
+
+  var totalInput = inputs.length;
+  var totalOutput = outputs.length;
 
   var fillPattern = "#265269";
   const chart = () => {
-    api.get("/products").then((res) => {
-      setProducts(res.data);
-      console.log(res.data);
-    });
-
     setChartGlobal({
-      labels: [
-        "Janeiro",
-        "Fevereiro",
-        "Março",
-        "Abril",
-        "Maio",
-        "Junho",
-        "Julho",
-        "Agosto",
-        "Setembro",
-        "Outubro",
-        "Novembro",
-        "Dezembro",
-      ],
+      labels: ["Novembro"],
       datasets: [
         {
           label: "Entrada",
-          data: [
-            20000,
-            32000,
-            18500,
-            26620,
-            31600,
-            37000,
-            36550,
-            36100,
-            39700,
-            35250,
-            38000,
-            42150,
-          ],
+          data: [totalInput],
           backgroundColor: fillPattern,
           borderColor: fillPattern,
           borderWidth: 4,
         },
         {
           label: "Saída",
-          data: [
-            16000,
-            17200,
-            18900,
-            15600,
-            22000,
-            31000,
-            30500,
-            32050,
-            37120,
-            39000,
-            32000,
-            41000,
-          ],
+          data: [totalOutput],
           backgroundColor: fillPattern,
           borderColor: fillPattern,
           borderWidth: 4,
@@ -90,7 +66,6 @@ export default function RegisterProduct(): ReactElement {
         "Setembro",
         "Outubro",
         "Novembro",
-        "Dezembro",
       ],
       datasets: [
         {
@@ -113,6 +88,7 @@ export default function RegisterProduct(): ReactElement {
 
   useEffect(() => {
     chart();
+    // loadInputAndOuput();
   });
 
   return (
@@ -125,7 +101,27 @@ export default function RegisterProduct(): ReactElement {
         </div>
 
         <div className="chart-box">
+          <h1>Headset Gamer Razer Kraken</h1>
+          <Bar data={chartProductOne} options={{ responsive: true }} />
+        </div>
+
+        <div className="chart-box">
           <h1>Notebook Lenovo Ultrafino Ideapad S145</h1>
+          <Bar data={chartProductOne} options={{ responsive: true }} />
+        </div>
+
+        <div className="chart-box">
+          <h1>Console Sony PlayStation 5 Digital Edition</h1>
+          <Bar data={chartProductOne} options={{ responsive: true }} />
+        </div>
+
+        <div className="chart-box">
+          <h1>Smartphone Nokia 5.3</h1>
+          <Bar data={chartProductOne} options={{ responsive: true }} />
+        </div>
+
+        <div className="chart-box">
+          <h1>Smart TV Samsung Series 5</h1>
           <Bar data={chartProductOne} options={{ responsive: true }} />
         </div>
         <footer>
