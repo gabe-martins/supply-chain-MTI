@@ -32,7 +32,8 @@ export default function RegisterProduct(): ReactElement {
   var totalInput = inputs.length;
   var totalOutput = outputs.length;
 
-  var fillPattern = "#265269";
+  var color1 = "#265269";
+  var color2 = "#099fed";
   const chart = () => {
     setChartGlobal({
       labels: ["Novembro"],
@@ -40,15 +41,29 @@ export default function RegisterProduct(): ReactElement {
         {
           label: "Entrada",
           data: [totalInput],
-          backgroundColor: fillPattern,
-          borderColor: fillPattern,
+          options: {
+            scales: {
+              xAxes: [
+                {
+                  stacked: true,
+                },
+              ],
+              yAxes: [
+                {
+                  stacked: true,
+                },
+              ],
+            },
+          },
+          backgroundColor: color1,
+          borderColor: color1,
           borderWidth: 4,
         },
         {
           label: "Saída",
           data: [totalOutput],
-          backgroundColor: fillPattern,
-          borderColor: fillPattern,
+          backgroundColor: color2,
+          borderColor: color2,
           borderWidth: 4,
         },
       ],
@@ -71,15 +86,15 @@ export default function RegisterProduct(): ReactElement {
         {
           label: "Entrada",
           data: [53, 44, 65, 44, 29, 73, 78, 51, 32, 46, 66, 82],
-          backgroundColor: fillPattern,
-          borderColor: fillPattern,
+          backgroundColor: color1,
+          borderColor: color1,
           borderWidth: 4,
         },
         {
           label: "Saída",
           data: [45, 24, 55, 27, 33, 33, 66, 34, 26, 42, 45, 57],
-          backgroundColor: fillPattern,
-          borderColor: fillPattern,
+          backgroundColor: color2,
+          borderColor: color2,
           borderWidth: 4,
         },
       ],

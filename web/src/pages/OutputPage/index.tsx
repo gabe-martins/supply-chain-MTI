@@ -104,7 +104,7 @@ export default function InputPage(): ReactElement {
               Preencha todos os dados
             </p>
 
-            <button type="submit">Confirmar entrada</button>
+            <button type="submit">Confirmar saída</button>
           </footer>
         </form>
       </main>
