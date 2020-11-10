@@ -41,20 +41,6 @@ export default function RegisterProduct(): ReactElement {
         {
           label: "Entrada",
           data: [totalInput],
-          options: {
-            scales: {
-              xAxes: [
-                {
-                  stacked: true,
-                },
-              ],
-              yAxes: [
-                {
-                  stacked: true,
-                },
-              ],
-            },
-          },
           backgroundColor: color1,
           borderColor: color1,
           borderWidth: 4,
@@ -113,11 +99,6 @@ export default function RegisterProduct(): ReactElement {
         <div className="chart-box">
           <h1>Global</h1>
           <Bar data={chartGlobal} options={{ responsive: true }} />
-        </div>
-
-        <div className="chart-box">
-          <h1>Headset Gamer Razer Kraken</h1>
-          <Bar data={chartProductOne} options={{ responsive: true }} />
         </div>
 
         <div className="chart-box">
